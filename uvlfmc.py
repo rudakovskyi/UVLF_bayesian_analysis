@@ -119,7 +119,10 @@ def compute_LF(z=6,
     ks=10**log10_ks
     
     if inv_mx is not None:
-        mx = 1 / inv_mx
+        try:
+            mx = 1 / inv_mx
+        except ZeroDivisionError:
+            mx = np.inf 
     
     K_UV = 1.15e-28 ### Mo.yr-1 / ( erg.s-1.Hz-1 )
     M_h, HMF = halos_mass_function(z=z, function_name=HMF_name, DM=DM, mx=mx)
