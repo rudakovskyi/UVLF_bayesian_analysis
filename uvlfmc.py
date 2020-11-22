@@ -111,13 +111,16 @@ def halos_mass_function(z, function_name='ST', DM='WDM', mx=20):
     
 def compute_LF(z=6, 
                log10_ks=1, a_s1=0.5, a_s2=0.5, 
-               log10_M_c=10, log10_M_t=6, mx=20, gamma=0,
+               log10_M_c=10, log10_M_t=6, mx=20, inv_mx=None, gamma=0,
                HMF_name='ST', DM='WDM',
                ind=1):
     M_t=10**log10_M_t
     M_c=10**log10_M_c
     ks=10**log10_ks
-        
+    
+    if inv_mx is not None:
+        mx = 1 / inv_mx
+    
     K_UV = 1.15e-28 ### Mo.yr-1 / ( erg.s-1.Hz-1 )
     M_h, HMF = halos_mass_function(z=z, function_name=HMF_name, DM=DM, mx=mx)
     f_z = ((1 + z) / 7)**gamma
