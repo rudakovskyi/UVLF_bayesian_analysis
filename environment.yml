@@ -1,0 +1,19 @@
+name: uvlf-bayes
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - astropy
+  - camb
+  - emcee
+  - r-bridgesampling
+  - rpy2
+  - jupyterlab
+  - r-matrix
+  - r-stringi
+  - pandas
+  - statsmodels
+  - mkl-service
+  - pymc3
+  - 21cmfast
+prefix: /home/homo_novus/anaconda3/envs/uvlf-bayes
